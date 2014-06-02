@@ -1,0 +1,6 @@
+.powered {
+  float: left;
+  width: 100%;
+  @include row;
+  text-align: center;
+}

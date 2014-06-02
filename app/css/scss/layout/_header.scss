@@ -1,0 +1,6 @@
+.global__header {
+  float: left;
+  @include fill-parent;
+  @include row;
+  position: relative;
+}

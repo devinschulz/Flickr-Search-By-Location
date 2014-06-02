@@ -23,16 +23,18 @@
 * MODULE
 *   NAVIGATION.........
 *   BUTTONS............
+*   GOOGLE PLACES......
+*   SEARCH.............
+*   GRID...............
+*   SPINNER............
 *
 * LAYOUT
 *   HEADER.............
 *   SIDEBAR............
 *   FOOTER.............
-*   FORMS..............Inputs and form elements
+*   FORMS..............
 *   CONTENT............
 *
-* PAGES
-*   HOME...............
 */
 
 //=============================================
@@ -63,8 +65,11 @@
 // MODULES
 //=============================================
 
-@import 'modules/navigation';
 @import 'modules/buttons';
+@import 'modules/google-places';
+@import 'modules/search';
+@import 'modules/grid';
+@import 'modules/spinner';
 
 //=============================================
 // LAYOUT
@@ -75,9 +80,3 @@
 @import 'layout/footer';
 @import 'layout/forms';
 @import 'layout/content';
-
-//=============================================
-// PAGES
-//=============================================
-
-@import 'pages/home';

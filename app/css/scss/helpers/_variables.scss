@@ -34,9 +34,7 @@ $white:                     #fff;
 
 // Colors
 // -------------------------
-$primary-light:             #7FDBFF;
-$primary:                   #0074D9;
-$primary-dark:              #001F3F;
+$primary:                   #5CACDE;
 
 $secondary-light:           #01FF70;
 $secondary:                 #2ECC40;
@@ -60,7 +58,7 @@ $active-link-color:         darken($base-link-color, 10%);
 // Typography
 //=============================================
 
-$base-font-family:  	      "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$base-font-family:  	      'Nunito', sans-serif;
 $heading-font-family:       $base-font-family;
 $mono-font-family:  	      Monaco, Menlo, Consolas, "Courier New", monospace;
 
@@ -96,9 +94,10 @@ $headings-color:            inherit;
 // -------------------------
 $font-weight-light: 	      300;
 $font-weight-normal:        400;
-$font-weight-semibold:      700;
-$font-weight-bold: 	        900;
+$font-weight-bold: 	        700;
 
+
+$lines:                     #D8D8DC;
 
 //=============================================
 // Component Sizing
@@ -143,7 +142,3 @@ $placeholder-text:           $gray;
 // Border
 //=============================================
 $hr-border:                  $gray;
-
-
-
-

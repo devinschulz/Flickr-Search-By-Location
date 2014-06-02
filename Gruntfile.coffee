@@ -13,13 +13,14 @@ module.exports = (grunt) ->
       css: 'app/css'
       sass: 'app/css/scss'
       img: 'app/img'
+      vendors: 'app/vendors'
 
     # Distribution
     dist:
-      root: 'dist'
-      js: 'dist/js'
-      css: 'dist/css'
-      img: 'dist/img'
+      root: 'public'
+      js: 'public/js'
+      css: 'public/css'
+      img: 'public/img'
 
     # Concatenate files
     # https://github.com/gruntjs/grunt-contrib-concat
@@ -31,7 +32,8 @@ module.exports = (grunt) ->
         dest: '<%= dist.js %>/scripts.js'
       vendor:
         src: [
-          '<%= dir.js %>/vendors/*.js'
+          '<%= dir.vendors %>/angular/angular.min.js'
+          '<%= dir.vendors %>/ngAutocomplete/src/ngAutocomplete.js'
         ]
         dest: '<%= dir.js %>/plugins.js'
 
@@ -143,10 +145,12 @@ module.exports = (grunt) ->
         files: [
           {
             expand: true
+            cwd: 'app'
             src: '.htaccess'
             dest: '<%= dist.root %>'
           },{
             expand: true
+            cwd: 'app'
             src: 'robots.txt'
             dest: '<%= dist.root %>'
           }
@@ -161,6 +165,11 @@ module.exports = (grunt) ->
           browsers: ['last 15 version', 'ie 8', 'ie 9']
         src: '<%= dir.css %>/styles.css'
         dest: '<%= dir.css %>/styles.css'
+      prod:
+        options:
+          browsers: ['last 15 version', 'ie 8', 'ie 9']
+        src: '<%= dist.css %>/styles.css'
+        dest: '<%= dist.css %>/styles.css'
 
     # Minify HTML
     # https://github.com/gruntjs/grunt-contrib-htmlmin
@@ -244,8 +253,6 @@ module.exports = (grunt) ->
         tasks: [
           'concat:vendor'
           'coffee'
-          'coffeelint'
-          'jshint'
         ]
         options:
           spawn: false
@@ -277,25 +284,23 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', [
     'sass:dev'
     'coffee'
-    'coffeelint'
     'concat:vendor'
-    'jshint'
   ]
 
   # Run with 'grunt production'
   grunt.registerTask 'production', [
     'clean:root'
     'coffee'
-    'coffeelint'
+#    'coffeelint'
     'sass:dist'
-    'autoprefixer'
     'concat'
     'uglify'
-    'jshint'
+#    'jshint'
     'copy'
     'svgmin'
     'imagemin'
     'htmlmin'
+    'autoprefixer:prod'
     'clean:scripts'
     'rename:scripts'
   ]
